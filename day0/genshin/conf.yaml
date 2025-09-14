@@ -1,0 +1,31 @@
+args:
+  n: 1000
+compile:
+  c: -O2 -std=c11
+  cpp: -O2 -std=c++14
+  java: ''
+  pas: -O2
+  py: ''
+data:
+- cases:
+  - 1
+  args: 5
+  score: 10
+- cases:
+  args: 1000
+  score: 20
+- cases:
+  args: 50000
+- cases:
+  args: 100000
+folder: problem
+memory limit: 1 GiB
+name: genshin
+partial score: false
+samples: []
+time limit: 1.0
+title:
+  zh-cn: 原神
+type: program
+users: {}
+version: 2
