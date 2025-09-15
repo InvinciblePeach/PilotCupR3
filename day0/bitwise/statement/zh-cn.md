@@ -40,6 +40,26 @@
 
 {{ self.sample_text() }}
 
+{{ s('sample', 2) }}
+
+{{ self.sample_file() }}
+
+{{ s('sample', 3) }}
+
+{{ self.sample_file() }}
+
+{{ s('sample', 4) }}
+
+{{ self.sample_file() }}
+
+{{ s('sample', 5) }}
+
+{{ self.sample_file() }}
+
+{{ s('sample', 6) }}
+
+{{ self.sample_file() }}
+
 {{ s('subtasks') }}
 
 {{ tbl('data') }}
