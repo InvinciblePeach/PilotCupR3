@@ -8,7 +8,7 @@
 
 你需要回答 $m$ 组询问, 每次给定一组整数 $x_i,y_i>0$, 并回答有多少整数对 $l,r\in[1,n]$ 满足如下条件:
 
-* $r-l\gt 2$
+* $r-l > 2$
 * $(a_l \operatorname
 {xor} a_r) + (a_l\operatorname
 {or}a_r)+(a_l\operatorname
