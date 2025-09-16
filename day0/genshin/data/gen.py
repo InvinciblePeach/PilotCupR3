@@ -1,7 +1,7 @@
 from cyaron import *
 
-n = 5
-q = 5
+n = 100000
+q = 200
 w = [randint(0, 7) for _ in range(n)]
 print(f'{n} {q}')
 print(' '.join(map(str, w)))
@@ -14,4 +14,4 @@ for _ in range(q):
     if op == 1:
         print(f'{op} {randint(1, n)} {randint(1, n)}')
     elif op == 2:
-        print(f'{op} {randint(1, n)} {randint(1, n)} {randint(0, 7)}')
+        print(f'{op} {randint(1, n)} {randint(1, n)} {randint(0, 2 ** 31 - 1)}')

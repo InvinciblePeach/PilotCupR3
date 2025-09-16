@@ -3,9 +3,10 @@ folder: day
 name: day0
 start time: 1926-08-17 00:00:00+0800
 subdir:
-- construction
+- cons
 - treasure
 - bitwise
+- genshin
 title:
   zh-cn: ''
 version: 2

@@ -139,7 +139,7 @@ signed main() {
         cin >> u >> v;
         g[u].emplace_back(v), g[v].emplace_back(u);
     }
-    dfs1(1, 1);
+    dfs1(1, 0), dfs2(1, 0, 1);
     val.vis.set();
     val.dfs2(1, 1);
     for (int k = 0; k < MAXV; k++) {
@@ -157,7 +157,6 @@ signed main() {
             cin >> z;
             ans.clear();
             for (int i = 0; i < MAXV; i++) ans.insert(t[i].query(x, y));
-            // cerr << val.query(lca(x, y)) << '\n';
             ans.insert(val.query(lca(x, y)));
             cout << ans.query(z) << '\n';
         }

@@ -1,5 +1,5 @@
 args:
-  n: 1000
+  n: 500000
 compile:
   c: -O2 -std=c11
   cpp: -O2 -std=c++14
@@ -9,15 +9,31 @@ compile:
 data:
 - cases:
   - 1
-  args: 5
+  args: [10]
   score: 10
 - cases:
-  args: 1000
+  - 2
+  args: [2000]
   score: 20
 - cases:
-  args: 50000
+  - 3
+  args: [50000]
+  feat: [没有 $2$ 操作]
+  score: 10
 - cases:
-  args: 100000
+  - 4
+  args: [100000]
+  feat: [没有 $2$ 操作]
+  score: 20
+- cases:
+  - 5
+  args: [500000]
+  feat: [给出的树是一条链]
+  score: 10
+- cases:
+  - 6
+  args: [500000]
+  score: 30
 folder: problem
 memory limit: 1 GiB
 name: genshin
