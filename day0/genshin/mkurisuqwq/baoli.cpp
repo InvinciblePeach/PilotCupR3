@@ -4,7 +4,7 @@ using namespace std;
 using ll = long long;
 using pii = pair<int, int>;
 
-const int MAXN = 5010;
+const int MAXN = 1e5 + 10;
 int n, q, w[MAXN], fa[MAXN];
 vector<int> g[MAXN];
 
@@ -53,6 +53,7 @@ bitset<MAXN> vis;
 int query(int u, int v, int val) {
     int tmp = v;
     vis.reset();
+    ans.clear();
     while (tmp) vis[tmp] = 1, tmp = fa[tmp];
     while (!vis[u]) {
         ans.insert(w[u]);
