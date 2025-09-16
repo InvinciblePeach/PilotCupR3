@@ -74,7 +74,7 @@ struct GBT {
     void modify(int p, int val) {
         while (p) {
             t[p].sum ^= val;
-            if (p == lc(t[p].fa) || p == rc(t[p].rc))
+            if (p == lc(t[p].fa) || p == rc(t[p].fa))
                 p = t[p].fa;
             else
                 break;
@@ -85,10 +85,7 @@ struct GBT {
         bool flag = true;
         int res = 0;
         while (p) {
-            if (flag)
-                res ^= t[p].sum ^ t[rc(p)].sum;
-            else
-                res ^= t[p].sum ^ t[lc(p)].sum ^ t[rc(p)].sum;
+            if (flag) res ^= t[p].sum ^ t[rc(p)].sum;
             flag = (p != lc(t[p].fa));
             p = t[p].fa;
         }
@@ -160,6 +157,7 @@ signed main() {
             cin >> z;
             ans.clear();
             for (int i = 0; i < MAXV; i++) ans.insert(t[i].query(x, y));
+            // cerr << val.query(lca(x, y)) << '\n';
             ans.insert(val.query(lca(x, y)));
             cout << ans.query(z) << '\n';
         }
