@@ -7,36 +7,70 @@ compile:
   pas: -O2
   py: ''
 data:
-- cases:
-  - 1
-  args: [10, 10]
+- args:
+  - 10
+  - 10
+  cases:
+  - 1-1
+  - 1-2
   score: 10
-- cases:
-  - 2
-  args: [2000, 2000]
+- args:
+  - 2000
+  - 2000
+  cases:
+  - 2-1
+  - 2-2
+  - 2-3
   score: 25
-- cases:
-  - 3
-  args: [50000, 50000]
-  feat: [给出的树是一条链]
+- args:
+  - 50000
+  - 50000
+  cases:
+  - 3-1
+  - 3-2
+  - 3-3
+  - 3-4
+  feat:
+  - 给出的树是一条链
   score: 25
-- cases:
-  - 4
-  args: [140000, 200000]
-  feat: [没有 $1$ 操作]
+- args:
+  - 140000
+  - 200000
+  cases:
+  - 4-1
+  - 4-2
+  feat:
+  - 没有 $1$ 操作
   score: 10
-- cases:
-  - 5
-  args: [140000, 200000]
+- args:
+  - 140000
+  - 200000
+  cases:
+  - 5-1
+  - 5-2
   score: 30
 folder: problem
 memory limit: 1 GiB
 name: genshin
 partial score: false
-samples: []
-time limit: 3.0
+samples:
+- cases:
+  - 1
+  - 2
+  - 3
+time limit: 3.5
 title:
   zh-cn: 原神
 type: program
-users: {}
+users:
+  mkurisuqwq:
+    3log:
+      expected: < 100
+      path: mkurisuqwq/3log.cpp
+    baoli:
+      expected: <= 40
+      path: mkurisuqwq/baoli.cpp
+    std:
+      expected: == 100
+      path: mkurisuqwq/std.cpp
 version: 2

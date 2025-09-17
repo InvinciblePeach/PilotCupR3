@@ -7,7 +7,7 @@ for datum in prob['data']:	#引用conf.json/yaml中的变量
 		r"$\leq %s$" % tl.hn(args[0]),		#tl.hn函数用于把10000输出成10^{4}这样好看的样子
 		r"$\leq %s$" % tl.hn(args[1]),
 											#python的字符串可以直接用百分号格式化成新的字符串
-		r"$%d$" % datum['score'],		#Python可以用前面加r的禁止转义字符串解决右斜杠需要两次转义的问题
+		no_merge(r"$%d$" % datum['score']),		#Python可以用前面加r的禁止转义字符串解决右斜杠需要两次转义的问题
 		' '.join(datum.get('feat', ['-'])),
 	]
 	ret.append(row)	#这是python数组的push_back

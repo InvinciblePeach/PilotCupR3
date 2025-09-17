@@ -31,6 +31,14 @@
 
 {{ s('sample', 2) }}
 
+该组样例满足子任务 2 的约束.
+
+{{ self.sample_file() }}
+
+{{ s('sample', 3) }}
+
+该组样例满足子任务 5 的约束.
+
 {{ self.sample_file() }}
 
 {{ s('subtasks') }}

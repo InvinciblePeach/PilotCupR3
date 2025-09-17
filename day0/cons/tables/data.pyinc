@@ -5,7 +5,7 @@ for datum in prob['data']:	#引用conf.json/yaml中的变量
 	row = [
 		datum['cases'][0][0],
 		r"$\le %s$" % args[0].hn(),
-		r"$%d$" % datum['score'],
+		no_merge(r"$%d$" % datum['score']),
 	]
 	ret.append(row)	#这是python数组的push_back
 return ret	#现在不用merge_ver函数也会自动合并了
