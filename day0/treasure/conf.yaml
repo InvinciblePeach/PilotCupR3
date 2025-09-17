@@ -47,24 +47,27 @@ folder: problem
 memory limit: 512 MiB
 name: treasure
 partial score: false
+pre: []
 samples:
 - cases:
   - 1
+- cases:
+  - 2
+  - 3
 time limit: 1.0
 title:
   zh-cn: 宝藏
 type: program
-users: 
+users:
+  chatgpt:
+    baoli:
+      expected: == 10
+      path: chatgpt/baoli.cpp
+    std:
+      expected: == 100
+      path: chatgpt/std.cpp
   mkurisuqwq:
     std:
-      expected: '== 100'
+      expected: == 100
       path: mkurisuqwq/std.cpp
-  chatgpt:
-    std:
-      expected: '== 100'
-      path: chatgpt/std.cpp
-    baoli:
-      expected: '== 10'
-      path: chatgpt/baoli.cpp
-
 version: 2

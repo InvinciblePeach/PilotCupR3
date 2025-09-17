@@ -53,6 +53,7 @@ folder: problem
 memory limit: 1 GiB
 name: genshin
 partial score: false
+pre: []
 samples:
 - cases:
   - 1
