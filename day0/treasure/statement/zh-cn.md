@@ -8,7 +8,7 @@
 
 {{ s('description') }}
 
-现在有 $N$ 个垃圾和 $M$ 个宝藏, 每个东西都有一个正权 $p_i$, 随机抽取 $K$ 次, 一个抽取方案 $S$ 的概率为 $\sum_{a\in S}p_a$, 保证 $\sum_{S \subseteq U \wedge |S| = k}\sum_{a\in S }p_a=1$
+现在有 $N$ 个垃圾和 $M$ 个宝藏, 每个东西都有一个正权 $p_i$, 随机抽取 $K$ 次, 一个抽取方案 $S$ 的概率为 $\sum_{a\in S}p_a$, 保证 $\sum_{S \subseteq U \wedge |S| = K}\sum_{a\in S }p_a=1$
 
 记抽取得到的宝藏个数为 $A$, 求 $A$ 的期望和方差, 答案对 $998244353$ 取模.
 

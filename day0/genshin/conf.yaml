@@ -1,5 +1,6 @@
 args:
-  n: 500000
+  n: 140000
+  q: 200000
 compile:
   c: -O2 -std=c11
   cpp: -O2 -std=c++14
