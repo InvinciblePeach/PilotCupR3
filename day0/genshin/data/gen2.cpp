@@ -48,7 +48,7 @@ int rand(int l, int r, int len) {
 void work(int n, int q) {
     cerr << n << ' ' << q << ' ';
     build(n, rnd() & MAXV, 1, 1e6);
-    for (int i = 1; i <= n; i++) w[i] = rnd() & f[i];
+    for (int i = 1; i <= n; i++) w[i] = rnd() & MAXV;
     cout << n << ' ' << q << '\n';
     for (int i = 1; i <= n; i++) cout << w[i] << " \n"[i == n];
     for (int i = 1; i <= n; i++) {
@@ -61,10 +61,10 @@ void work(int n, int q) {
     cerr << L << ' ' << R << '\n';
     while (q-- > 0) {
         static int op, x, y;
-        op = rand(1, 2);
+        op = rand(1, 2000);
         if (op == 1) {
             x = rand(1, n, 14);
-            y = rnd() & f[x];
+            y = rnd() & MAXV;
             cout << "1 " << x << ' ' << y << '\n';
         } else {
             if (rand(1, 2) != 1) {
@@ -84,8 +84,8 @@ void work(int n, int q) {
 }
 
 signed main() {
-    for (int i = 1; i <= 4; i++) {
-        string tmp = format("3-{}.in", i);
+    for (int i = 3; i <= 4; i++) {
+        string tmp = format("5-{}.in", i);
         freopen(tmp.c_str(), "w", stdout);
         L = R = tot = 0;
         work(rand(4.9e4, 5e4), 5e4);

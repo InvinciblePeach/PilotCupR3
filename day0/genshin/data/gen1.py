@@ -55,11 +55,12 @@ def work(n, q, fin):
             fin.write(f'2 {u} {v} {randint(0, MAXV)}\n')
 
 N = [0, 10, 5000, 50000, 100000, 100000, 100000]
-for i in range(6, 7):
-    for j in range(1, round(4, 6)):
-        print(f'working in: {i}-{j}.in')
-        n = N[i]
-        n = randint(max(2, n - 100), n)
-        q = randint(max(5, N[i] - 100), N[i])
-        with open(f'{i}-{j}.in', 'w+') as file:
-            work(n, q, file)
+
+i = 5
+for j in range(3, 5):
+    print(f'working in: {i}-{j}.in')
+    n = N[i]
+    n = randint(max(2, n - 100), n)
+    q = randint(max(5, N[i] - 100), N[i])
+    with open(f'{i}-{j}.in', 'w+') as file:
+        work(n, q, file)
