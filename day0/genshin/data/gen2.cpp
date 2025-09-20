@@ -31,7 +31,7 @@ int build(int siz, int val, int dep, int flag) {
     int val1 = val, val2 = val;
     if (dep % 100 == 0) val1 &= rnd(), val2 ^= val1;
     lc[p] = build(tmp1, val1, dep + 1, 0);
-    rc[p] = build(tmp2, val2, dep + 1, 1);
+    rc[p] = build(tmp2, val2, dep + 1, 20);
     if (lc[p]) fa[lc[p]] = p;
     if (rc[p]) fa[rc[p]] = p;
     return p;
@@ -47,8 +47,8 @@ int rand(int l, int r, int len) {
 
 void work(int n, int q) {
     cerr << n << ' ' << q << ' ';
-    build(n, rnd() & MAXV, 1, 1e6);
-    for (int i = 1; i <= n; i++) w[i] = rnd() & MAXV;
+    build(n, rnd() & MAXV, 1, 0);
+    for (int i = 1; i <= n; i++) w[i] = rnd() & f[i];
     cout << n << ' ' << q << '\n';
     for (int i = 1; i <= n; i++) cout << w[i] << " \n"[i == n];
     for (int i = 1; i <= n; i++) {
@@ -64,13 +64,11 @@ void work(int n, int q) {
         op = rand(1, 2000);
         if (op == 1) {
             x = rand(1, n, 14);
-            y = rnd() & MAXV;
+            y = rnd() & f[x];
             cout << "1 " << x << ' ' << y << '\n';
         } else {
-            if (rand(1, 2) != 1) {
-                x = rand(1, n);
-                y = rand(min(n, x + 1000), n);
-                cout << "2 " << x << ' ' << y << ' ' << (rnd() & MAXV) << '\n';
+            if (rand(1, 50) != 1) {
+                cout << "2 " << L << ' ' << n << ' ' << (rnd() & MAXV) << '\n';
             } else {
                 // int rt = rand(20000, L);
                 // // cerr << rt << ' ' << siz[rt] << '\n';
@@ -84,11 +82,11 @@ void work(int n, int q) {
 }
 
 signed main() {
-    for (int i = 3; i <= 4; i++) {
+    for (int i = 5; i <= 5; i++) {
         string tmp = format("5-{}.in", i);
         freopen(tmp.c_str(), "w", stdout);
         L = R = tot = 0;
-        work(rand(4.9e4, 5e4), 5e4);
+        work(rand(1.99e5, 2e5), 2e5);
     }
 
     return 0;
