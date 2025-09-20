@@ -31,7 +31,7 @@ int build(int siz, int val, int dep, int flag) {
     int val1 = val, val2 = val;
     if (dep % 100 == 0) val1 &= rnd(), val2 ^= val1;
     lc[p] = build(tmp1, val1, dep + 1, 0);
-    rc[p] = build(tmp2, val2, dep + 1, 20);
+    rc[p] = build(tmp2, val2, dep + 1, 300);
     if (lc[p]) fa[lc[p]] = p;
     if (rc[p]) fa[rc[p]] = p;
     return p;
@@ -61,7 +61,7 @@ void work(int n, int q) {
     cerr << L << ' ' << R << '\n';
     while (q-- > 0) {
         static int op, x, y;
-        op = rand(1, 2000);
+        op = 2;
         if (op == 1) {
             x = rand(1, n, 14);
             y = rnd() & f[x];
@@ -82,8 +82,8 @@ void work(int n, int q) {
 }
 
 signed main() {
-    for (int i = 5; i <= 5; i++) {
-        string tmp = format("5-{}.in", i);
+    for (int i = 4; i <= 4; i++) {
+        string tmp = format("4-{}.in", i);
         freopen(tmp.c_str(), "w", stdout);
         L = R = tot = 0;
         work(rand(1.99e5, 2e5), 2e5);

@@ -5,7 +5,7 @@ using ll = long long;
 using pii = pair<int, int>;
 
 mt19937 rnd(chrono::system_clock::now().time_since_epoch().count());
-const int MAXN = 1.4e5 + 10, MAXV = 50;
+const int MAXN = 2e5 + 10, MAXV = 50;
 int n, q, w[MAXN], b[MAXN], siz[MAXN], fa[MAXN], son[MAXN], top[MAXN], dep[MAXN];
 int st[MAXN], sum[MAXN], tot;
 vector<int> g[MAXN];

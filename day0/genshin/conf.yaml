@@ -40,6 +40,8 @@ data:
   cases:
   - 4-1
   - 4-2
+  - 4-3
+  - 4-4
   feat:
   - 没有 $1$ 操作
   score: 10
@@ -49,6 +51,10 @@ data:
   cases:
   - 5-1
   - 5-2
+  - 5-3
+  - 5-4
+  - 5-5
+  - 5-6
   score: 30
 folder: problem
 memory limit: 1 GiB
