@@ -1,11 +1,12 @@
 folder: contest
 name: name for programmers
 short title:
-  zh-cn: PCupR3
+  zh-cn: PlC R3
 subdir:
 - day0
+- day1
 subtitle:
-  zh-cn: Pilot Cup Round 3
+  zh-cn: ''
 title:
   zh-cn: 机长杯 Round 3
 version: 2
