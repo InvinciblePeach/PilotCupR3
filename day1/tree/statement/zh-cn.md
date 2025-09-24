@@ -36,6 +36,10 @@
 
 {{ self.sample_text() }}
 
+{{ s('sample', 3) }}
+
+{{ self.sample_file() }}
+
 {{ s('subtasks') }}
 
 {{ tbl('data') }}
