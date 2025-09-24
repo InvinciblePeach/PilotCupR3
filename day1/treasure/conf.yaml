@@ -1,0 +1,73 @@
+args:
+  n: 100000
+compile:
+  c: -O2 -std=c11
+  cpp: -O2 -std=c++14
+  java: ''
+  pas: -O2
+  py: ''
+data:
+- args:
+    n: 10
+  cases:
+  - 1-1
+  - 1-2
+  - 1-3
+  - 1-4
+  - 1-5
+  score: 10
+- args:
+    n: 100
+  cases:
+  - 2-1
+  - 2-2
+  - 2-3
+  - 2-4
+  - 2-5
+  score: 20
+- args:
+    n: 1000
+  cases:
+  - 3-1
+  - 3-2
+  - 3-3
+  - 3-4
+  - 3-5
+  score: 20
+- args:
+    n: 100000
+  cases:
+  - 4-1
+  - 4-2
+  - 4-3
+  - 4-4
+  - 4-5
+  score: 50
+folder: problem
+memory limit: 512 MiB
+name: treasure
+partial score: false
+pre: []
+samples:
+- cases:
+  - 1
+- cases:
+  - 2
+  - 3
+time limit: 1.0
+title:
+  zh-cn: 宝藏
+type: program
+users:
+  chatgpt:
+    baoli:
+      expected: == 10
+      path: chatgpt/baoli.cpp
+    std:
+      expected: == 100
+      path: chatgpt/std.cpp
+  mkurisuqwq:
+    std:
+      expected: == 100
+      path: mkurisuqwq/std.cpp
+version: 2

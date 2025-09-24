@@ -1,12 +1,12 @@
 end time: 1926-08-17 00:00:01+0800
 folder: day
-name: div1
+name: div2
 start time: 1926-08-17 00:00:00+0800
 subdir:
 - cons
+- tree
 - treasure
 - bitwise
-- genshin
 title:
-  zh-cn: Div. 1
+  zh-cn: Div. 2
 version: 2
