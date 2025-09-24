@@ -25,3 +25,8 @@ loj
 /output
 .venv
 *.pdf
+*.gz
+*.xdv
+*.fls
+*.fdb_latexmk
+*.aux

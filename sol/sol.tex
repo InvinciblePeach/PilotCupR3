@@ -1,0 +1,113 @@
+\documentclass[a4paper, 12pt]{ctexart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8}
+
+
+\title{机长杯 R3 Sol}
+\author{MKurisuqwq}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section{Contributors}
+
+\begin{table}
+    \begin{center}
+        \begin{tabular}{l|l|llll}
+        id & problem & idea         & std          & data         & check            \\
+        \hline
+        T0 & 树       & Neat\_Isaac  & Neat\_Isaac  & Neat\_Isaac  & MKurisuqwq       \\
+        T1 & 构造      & snowycat1234 & snowycat1234 & snowycat1234 & james1badcreeper \\
+        T2 & 宝藏      & snowycat1234 & MKurisuqwq   & MKurisuqwq   & james1badcreeper \\
+        T3 & 叉奥      & snowycat1234 & snowycat1234 & snowycat1234 & james1badcreeper \\
+        T4 & 原神      & MKurisuqwq   & MKurisuqwq   & MKurisuqwq   & james1badcreeper 
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\section{树}
+
+考察了对于 dfs 序及线段树的掌握. 考虑不换根怎么做, 不难发现子树的 dfs 序是连续的, 因此可以考虑用线段树维护 $dfs$ 序, 支持单点修改, 区间查询.
+
+如果换根呢? 假设我们先按以 $1$ 为根遍历一遍, 如果当前的查询根节点在 $u$ 的子树外, 则 $u$ 当前的子树与以 $1$ 为根时的子树是同一个;
+如果当前的查询根节点在 $u$ 的子树内, 则相当于全集去掉 $u$ 的子树里目前根节点所在的那棵子树. 这样我们就把一个询问拆成了序列上至多两个区间的询问, 复杂度 $O(n \log n)$.
+
+\section{构造}
+
+不会平方差公式的举个爪.
+
+不难发现如果 $n$ 能拆分成两个平方数的差时答案 ($0$) 最优, 假定 $n$ 一定能被拆分, 得到:
+
+$$
+a^2 - b^2 = n = (a - b)(a + b)
+$$
+
+注意到 $a - b \equiv a + b \pmod 2$, 则满足如上拆分的 $n$ 要么是奇数, 要么是 $4$ 的倍数.
+不满足如上条件的情况也很好构造, 构造 $p = q = s = n, t = n - 1$ 即可, 既然取不到 $0$, 则 $1$ 一定是最优解.
+
+\section{宝藏}
+
+\subsection{算法一}
+
+设 $n = N + M$.
+
+进行一些观察, 不难得到 $\sum_{S \subseteq U \wedge |S| = K}\sum_{a\in S }p_a=1$ 每个 $p_i$ 贡献了 $\binom{n - 1}{k - 1}$ 次, 则:
+
+\begin{equation}
+    \sum p_i = \frac{1}{\binom{n - 1}{k - 1}} \label{con:sump}
+\end{equation}
+
+计算每一个宝藏被选到的概率, 他们的和即为答案.
+
+\begin{align}
+    P(i) &= \sum_{i \in S} P(S) \\
+    &= \sum_{i \in S} \sum_{a \in S} p_a
+\end{align}
+
+分别对 $a = i, a \neq i$ 分情况讨论得:
+
+\begin{align}
+    = \binom{n - 1}{k - 1}p_i + \sum_{a \neq i} p_a \binom{n - 2}{k - 2}
+\end{align}
+
+借助式 \eqref{con:sump} 得到:
+
+\begin{align}
+    &= \binom{n - 1}{k - 1}p_i + \binom{n - 2}{k - 2}\left(\frac{1}{\binom{n - 1}{k - 1}} - p_i\right)\\
+    &= \frac{\binom{n - 2}{k - 1}}{\binom{n - 1}{k - 1}} + p_i\left[\binom{n - 1}{k - 1} - \binom{n - 2}{k - 2}\right]\\
+    &= \frac{k - 1}{n - 1} + p_i \binom{n - 2}{k - 1}
+\end{align}
+
+对以上求和 (借助 $i \in N$ 表示 $i$ 是宝藏):
+
+\begin{align}
+    E(a) &= \sum_{i \in N} E(i)\\
+    &= \frac{m(k - 1)}{n - 1} + \binom{n - 2}{k - 1}\sum_{i \in N} p_i
+\end{align}
+
+方差的计算有通过协方差计算的方法, 过于繁杂, 这里不做介绍.
+
+\subsection{算法二}
+
+by james1badcreeper.
+
+可以得知这个概率其实等于先加权随机取一个, 再均匀随机 $K - 1$ 的概率.
+
+直接考虑 dp, 设 $f_{i,j}, g_{i, j}$ 表示考虑前 $i$ 个垃圾/宝藏, 选择 $j$ 个垃圾/宝藏, 的概率之和.
+不难得到转移方程:
+$$
+f_{i, j} = f_{i - 1, j} + \binom{N - 1}{j - 1}\sum p_i
+$$
+
+那么我们枚举取到 $A$ 个宝藏, 当前的概率为:
+$$
+\binom{M}{A} f_{N, k - A} + \binom{N}{k - A} g_{M, A}
+$$
+
+乘上 $A$ 就是期望, 乘上 $A^2$ 就是平方的期望, 做差即得方差.
+
+\end{document}
