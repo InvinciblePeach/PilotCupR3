@@ -45,7 +45,6 @@ signed main() {
     (ans += (k - 1) * (k - 2) % mod * inv((n - 1) * (n - 2) % mod) % mod *
             (M * (M - 1) % mod - 2 * (M - 1) * sum % mod) % mod) %= mod;
     cout << (E + mod) % mod << '\n';
-    cout << (ans + mod) % mod << '\n';
 
     return 0;
 }

@@ -1,5 +1,5 @@
 args:
-  n: 1000
+  n: 100000
 compile:
   c: -O2 -std=c11
   cpp: -O2 -std=c++14
@@ -10,7 +10,7 @@ data:
 - cases:
   - 1
   - 2
-  feat: $n,m$ 不大于 $1000$
+  feat: "$n,m, a_i \\leq 1000$"
 - cases:
   - 3
   feat: 给定的树是一条链
