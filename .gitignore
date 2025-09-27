@@ -30,3 +30,4 @@ loj
 *.fls
 *.fdb_latexmk
 *.aux
+*.out
