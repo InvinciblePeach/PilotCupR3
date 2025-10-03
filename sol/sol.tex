@@ -24,7 +24,7 @@
     T1 & 构造      & snowycat1234 & snowycat1234 & snowycat1234 & james1badcreeper \\
     T2 & 宝藏      & snowycat1234 & MKurisuqwq   & MKurisuqwq   & james1badcreeper \\
     T3 & 叉奥      & snowycat1234 & snowycat1234 & snowycat1234 & james1badcreeper \\
-    T4 & 原神      & MKurisuqwq   & MKurisuqwq   & MKurisuqwq   & james1badcreeper 
+    T4 & 原神      & MKurisuqwq   & MKurisuqwq   & MKurisuqwq   & james1badcreeper
 \end{tabular}
 
 特别鸣谢 userLCX 为机长杯提供了 IP 价值.
@@ -45,7 +45,7 @@
 不难发现如果 $n$ 能拆分成两个平方数的差时答案 ($0$) 最优, 假定 $n$ 一定能被拆分, 得到:
 
 $$
-a^2 - b^2 = n = (a - b)(a + b)
+    a^2 - b^2 = n = (a - b)(a + b)
 $$
 
 注意到 $a - b \equiv a + b \pmod 2$, 则满足如上拆分的 $n$ 要么是奇数, 要么是 $4$ 的倍数.
@@ -66,8 +66,8 @@ $$
 计算每一个宝藏被选到的概率, 他们的和即为答案.
 
 \begin{align}
-    P(i) &= \sum_{i \in S} P(S) \\
-    &= \sum_{i \in S} \sum_{a \in S} p_a
+    P(i) & = \sum_{i \in S} P(S)               \\
+         & = \sum_{i \in S} \sum_{a \in S} p_a
 \end{align}
 
 分别对 $a = i, a \neq i$ 分情况讨论得:
@@ -79,16 +79,16 @@ $$
 借助式 \eqref{con:sump} 得到:
 
 \begin{align}
-    &= \binom{n - 1}{k - 1}p_i + \binom{n - 2}{k - 2}\left(\frac{1}{\binom{n - 1}{k - 1}} - p_i\right)\\
-    &= \frac{\binom{n - 2}{k - 1}}{\binom{n - 1}{k - 1}} + p_i\left[\binom{n - 1}{k - 1} - \binom{n - 2}{k - 2}\right]\\
-    &= \frac{k - 1}{n - 1} + p_i \binom{n - 2}{k - 1}
+     & = \binom{n - 1}{k - 1}p_i + \binom{n - 2}{k - 2}\left(\frac{1}{\binom{n - 1}{k - 1}} - p_i\right)                 \\
+     & = \frac{\binom{n - 2}{k - 1}}{\binom{n - 1}{k - 1}} + p_i\left[\binom{n - 1}{k - 1} - \binom{n - 2}{k - 2}\right] \\
+     & = \frac{k - 1}{n - 1} + p_i \binom{n - 2}{k - 1}
 \end{align}
 
 对以上求和 (借助 $i \in N$ 表示 $i$ 是宝藏):
 
 \begin{align}
-    E(a) &= \sum_{i \in N} E(i)\\
-    &= \frac{m(k - 1)}{n - 1} + \binom{n - 2}{k - 1}\sum_{i \in N} p_i
+    E(a) & = \sum_{i \in N} E(i)                                             \\
+         & = \frac{m(k - 1)}{n - 1} + \binom{n - 2}{k - 1}\sum_{i \in N} p_i
 \end{align}
 
 方差的计算有通过协方差计算的方法, 过于繁杂, 这里不做介绍.
@@ -102,12 +102,12 @@ by james1badcreeper.
 直接考虑 dp, 设 $f_{i,j}, g_{i, j}$ 表示考虑前 $i$ 个垃圾/宝藏, 选择 $j$ 个垃圾/宝藏, 的概率之和.
 不难得到转移方程:
 $$
-f_{i, j} = f_{i - 1, j} + \binom{N - 1}{j - 1}\sum p_i
+    f_{i, j} = f_{i - 1, j} + \binom{N - 1}{j - 1}\sum p_i
 $$
 
 那么我们枚举取到 $A$ 个宝藏, 当前的概率为:
 $$
-\binom{M}{A} f_{N, k - A} + \binom{N}{k - A} g_{M, A}
+    \binom{M}{A} f_{N, k - A} + \binom{N}{k - A} g_{M, A}
 $$
 
 乘上 $A$ 就是期望, 乘上 $A^2$ 就是平方的期望, 做差即得方差.
@@ -122,7 +122,7 @@ $O(qn^2)$ 做法显然.
 原式实际可以转化成:
 
 $$
-2(a_l\operatorname{or}a_r)+\bigoplus_{i=l}^ra_i=x(\sum_{i=l}^{r-1}a_i\operatorname{and}a_{i+1})+y(\sum_{i=l}^{r-1}a_i\operatorname{or}a_{i+1})
+    2(a_l\operatorname{or}a_r)+\bigoplus_{i=l}^ra_i=x(\sum_{i=l}^{r-1}a_i\operatorname{and}a_{i+1})+y(\sum_{i=l}^{r-1}a_i\operatorname{or}a_{i+1})
 $$
 
 假定我们固定左端点, 不难发现左边一定小于等于 $2^{\log_2 a_i + 2}$, 则我们其实只需要考虑等式右边小于这个值的区间即可, 而且等式右边是单调增的, 我们可以考虑向右扩展到不合法的区间就停止.
@@ -147,7 +147,7 @@ $$
 
 \subsection{算法二}
 
-区间修改线性基是不好做的, 考虑转化. 一脉相承于 P11620, 考虑树上差分, 设 $b_p = a_p \operatorname{xor} a_{fa}$, 
+区间修改线性基是不好做的, 考虑转化. 一脉相承于 P11620, 考虑树上差分, 设 $b_p = a_p \operatorname{xor} a_{fa}$,
 则 $a_p$ 等于他到根的一条链上的 $b$ 的异或和.
 
 然后考虑线性基, 若 $v=a_{p_1}\operatorname{xor}a_{p_2}\operatorname{xor}\dots\operatorname{xor}a_{p_k}$, 将每个 $a$ 以 $a_{\operatorname{lca}} \operatorname{xor} b_k \dots$ 的形式代入, 发现每一项最多剩下 $\leq 1$ 个.
@@ -167,7 +167,7 @@ $$
 
 \subsection{算法四}
 
-\href{https://dl.ccf.org.cn/ppt/pptDetail.html?_ack=1&id=7456611705079808}{trick 来源}, 
+\href{https://dl.ccf.org.cn/ppt/pptDetail.html?_ack=1&id=7456611705079808}{trick 来源},
 \href{https://www.luogu.com/article/hyzcpypc}{证明参考}.
 
 结论: 一个集合随机取 $\log V$ 个子集他们的异或和所构成的线性基大概率是原集合的线性基.
