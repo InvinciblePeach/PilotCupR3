@@ -10,7 +10,7 @@ data:
 - cases:
   - 1
   - 2
-  feat: "$n,m, a_i \\leq 1000$"
+  feat: $n,m, a_i \leq 1000$
 - cases:
   - 3
   feat: 给定的树是一条链
@@ -31,7 +31,11 @@ memory limit: 512 MiB
 name: tree
 partial score: false
 pre: []
-samples: []
+samples:
+- cases:
+  - 1
+  - 2
+  - 3
 time limit: 1.0
 title:
   zh-cn: 树
